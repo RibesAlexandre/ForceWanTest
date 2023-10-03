@@ -1,0 +1,6 @@
+.master-head {
+    height: 500px;
+    background: linear-gradient(90deg, rgba(2,0,36,0.4) 0%, rgba(77,217,137,0.4) 47%, rgba(0,255,186,0.4) 100%), url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
