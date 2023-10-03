@@ -10,6 +10,7 @@
 </header>
 
 <div class="container my-4">
+    <h2 class="mb-4">Actions sur les évènements</h2>
     <div class="row">
         <div class="col-sm-12 col-md-4 text-center py-2">
             <button class="btn btn-success" id="add-good-event">Ajouter un évènement Positif</button>
@@ -23,7 +24,24 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container my-4">
+    <h2 class="mb-4">Derniers évènements</h2>
+    <div class="row" id="list-events">
+        <?php foreach( $events as $event ): ?>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id="event_<?= $event->id ?>">
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title text-center <?= $event->status === 'good' ? 'text-success' : 'text-danger' ?>"><?= $event->status === 'good' ? 'Bon' : 'Mauvais' ?> évènement</h5>
+                    <p class="card-text">Enregistré le <?= formattedDate($event->created_at) ?></p>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<div class="container my-4">
+    <h2 class="mb-4">Statistiques des évènements</h2>
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <figure class="highcharts-figure">

@@ -99,7 +99,7 @@ class App
     public static function route(): Router
     {
         if( is_null(self::$router) ) {
-            self::$router = new Router(isset($_GET['url']) ? htmlspecialchars($_GET['url']) : null);
+            self::$router = new Router(isset($_GET['url']) ? htmlspecialchars($_GET['url']) : '/');
         }
         return self::$router;
     }

@@ -31,3 +31,10 @@ function dd($data): void
     dump($data);
     exit;
 }
+
+function formattedDate($date)
+{
+    $date = date_parse($date);
+
+    return $date['day'] . '/' . $date['month'] . '/' . $date['year'] . ' à ' . $date['hour'] . ':' . $date['minute'] . ':' . $date['second'];
+}

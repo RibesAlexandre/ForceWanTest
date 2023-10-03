@@ -15,6 +15,32 @@ Mettre à jour le fichier
 config/database.php
 ```
 
-pour renseigner vos identifiants de connexion MySQL
+pour renseigner vos identifiants de connexion MySQL.
 
-## Test
+Dans votre base de donnée lancez le script SQL suivant :
+
+```
+CREATE TABLE `fw_events` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `session` text,
+  `status` enum('good','bad') DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+Le script est disponible en import dans le fichier database.sql si besoin
+
+## Installation avec Virtual Host
+
+Faîtes pointer votre virtualHost vers le dossier public du projet. 
+
+## Installation sans Virtual Host
+
+Rendez vous sur votre localhost / ForceWanTest / public 
+
+## Ré-écriture d'url
+
+Si la ré-écriture d'url ne fonctionne pas. Il vous suffira de rajouter index.php?url=/ en fin de votre url.

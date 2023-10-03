@@ -35,10 +35,21 @@ class EventsController extends BaseController
     public function removeLastEvent(): void
     {
         $lastEvent = (new Event())->latest()->first();
+
+        if( !$lastEvent ) {
+            echo json_encode([
+                'status'    =>  'error',
+                'message'   =>  'Aucun évènement à supprimer',
+            ]);
+            exit;
+        }
+
+        $lastId = $lastEvent->id;
         (new Event())->delete($lastEvent->id);
 
         echo json_encode(array_merge([
             'status'    =>  'success',
+            'id'        =>  $lastId,
         ], $this->generateChartsData()));
     }
 
@@ -67,7 +78,7 @@ class EventsController extends BaseController
                 'name'  =>  $event->getAttribute('name'),
                 'session'   =>  $event->getAttribute('session'),
                 'status'    =>  $event->getAttribute('status'),
-                'created_at'    =>  $event->getAttribute('created_at'),
+                'created_at'    =>  formattedDate($event->getAttribute('created_at')),
             ],
         ], $this->generateChartsData()));
     }

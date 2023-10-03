@@ -19,4 +19,10 @@ $app->route()->get('/', 'Home@index', 'home');
 $app->route()->get('/api/good-event', 'Api/Events@addGoodEvent', 'goodEvent');
 $app->route()->get('/api/bad-event', 'Api/Events@addBadEvent', 'badEvent');
 $app->route()->get('/api/remove-last-event', 'Api/Events@removeLastEvent', 'removeLastEvent');
-$app->route()->run();
+
+try {
+    $app->route()->run();
+}
+catch (\App\Exceptions\RouterException $e) {
+    echo $e->getMessage();
+}

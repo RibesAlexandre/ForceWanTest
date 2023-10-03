@@ -13,7 +13,7 @@ class HomeController extends BaseController
      */
     public function index()
     {
-        $events = (new Event())->latest()->get();
+        $events = (new Event())->latest()->limit(8)->get();
 
         $pieStats = (new Event())->getEventsStatusPourcentages();
         $lineStats = (new Event())->getEventsLineEvolution();

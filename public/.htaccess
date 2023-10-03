@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Supprimer le segment "index.php?url="
+RewriteCond %{THE_REQUEST} ^GET\ /index\.php\?url=([^\s&]+) [NC]
+RewriteRule ^ /%1? [R=302,L,NE]
+
+# Rediriger tout vers index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.php [L]
+
+RewriteRule ^test\.html$ test.php [L]
