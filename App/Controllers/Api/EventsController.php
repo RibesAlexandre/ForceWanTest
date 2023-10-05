@@ -75,6 +75,7 @@ class EventsController extends BaseController
         echo json_encode(array_merge([
             'status' => 'success',
             'event' => [
+                'id'    =>  $event->getAttribute('id'),
                 'name'  =>  $event->getAttribute('name'),
                 'session'   =>  $event->getAttribute('session'),
                 'status'    =>  $event->getAttribute('status'),

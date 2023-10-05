@@ -28,7 +28,7 @@
     <h2 class="mb-4">Derniers évènements</h2>
     <div class="row" id="list-events">
         <?php foreach( $events as $event ): ?>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id="event_<?= $event->id ?>">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" id="event_<?= $event->id; ?>">
             <div class="card my-4">
                 <div class="card-body">
                     <h5 class="card-title text-center <?= $event->status === 'good' ? 'text-success' : 'text-danger' ?>"><?= $event->status === 'good' ? 'Bon' : 'Mauvais' ?> évènement</h5>

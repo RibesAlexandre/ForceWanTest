@@ -22,6 +22,7 @@ const updateLineChart = function (data) {
 const insertEventInList = function(data) {
     const colDiv = document.createElement('div');
     colDiv.className = "col-sm-12 col-md-6 col-lg-4 col-xl-3";
+    colDiv.setAttribute('id', "event_" + data.id);
 
     const cardDiv = document.createElement('div');
     cardDiv.className = "card my-4";
